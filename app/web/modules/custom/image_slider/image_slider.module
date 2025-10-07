@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Image Slider module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function image_slider_theme($existing, $type, $theme, $path) {
+  return [
+    'image_slider_formatter' => [
+      'variables' => [
+        'items' => [],
+      ],
+    ],
+  ];
+}

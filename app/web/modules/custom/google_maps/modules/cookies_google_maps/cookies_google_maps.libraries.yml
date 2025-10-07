@@ -1,0 +1,7 @@
+default:
+  version: VERSION
+  js:
+    js/cookies-google-maps.js: {}
+  dependencies:
+    - core/drupal
+    - cookies/cookiesjsr

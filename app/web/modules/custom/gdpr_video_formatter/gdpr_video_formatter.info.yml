@@ -1,0 +1,9 @@
+name: GDPR Video Formatter
+type: module
+description: GDPR Video Formatter for YouTube videos based on Drupal media module
+package: User Interface
+core_version_requirement: ^9 || ^10
+configure: gdpr_video_formatter.settings_form
+dependencies:
+  - drupal:media
+  - drupal:responsive_image

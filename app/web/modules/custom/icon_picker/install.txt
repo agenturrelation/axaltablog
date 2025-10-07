@@ -1,0 +1,13 @@
+## Installation
+- TomSelect dependency is required for select box. Use Composer to install: composer require npm-asset/tom-select
+- Install the module
+- Create a new field from type "Icon Picker"
+
+## Custom Icon Font
+- Place your custom icon font in /icon_picker/fonts/iconset
+- Set / replace your classes in /icon_picker/src/Plugin/Field/FieldWidget/IconPickerWidget.php
+- Optional: Change the cleanup function to shorten the label ("demo-label") if needed.
+
+## Icon Output in Frontend:
+- Add icon_picker/iconset library to your (global) theme libraries
+- Use the Icon Picker field formatter or output the icon in a template file, like <i class="demo-icon-home"></i>

@@ -1,0 +1,325 @@
+@use "../libraries/puzzle/src/scss/variables" as v;
+
+/* Axalta
+-------------------------------------------------- */
+html[lang*="de"] {
+    .logo {
+        &:before {
+          content: '';
+          width: 90px;
+          height: 70px;
+          display: block;
+          background-image: url(../images/axalta-logo.png);
+          background-size: contain;
+          background-repeat: no-repeat;
+          vertical-align: middle;
+        }
+    }
+    h5,
+    h6 {
+    color: v.$axalta-red;
+    }
+    a {
+        color: v.$axalta-grey;
+        &:hover {
+            color: v.$axalta-red;
+        }
+    }
+    .cookiesjsr-layer {
+        .cookiesjsr-service-group--tab,
+        .cookiesjsr-service-group--content {
+            background: v.$axalta-red;
+        }
+    }
+    .paragraph--type--accordion {
+        .ckeditor-accordion-container {
+            dl {
+                dt {
+                    a {
+                        color: #000;
+                    }
+                    &.active {
+                        a {
+                            color: v.$axalta-red;
+                        }
+                        &:before {
+                            color: v.$axalta-red;
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+    .event-wrapper {
+        time {
+            color: v.$axalta-red;
+        }
+    }
+    footer {
+        background: v.$axalta-grey;
+        a {
+            color: white;
+            &:hover {
+                color: v.$axalta-red;
+            }
+        }
+        #footer-bottom {
+            color: #fff;
+            background: v.$axalta-grey;
+            a {
+                color: #fff;
+                &:hover {
+                    color: #eee;
+                }
+            }
+        }
+    }
+}
+
+/* Five-Star
+-------------------------------------------------- */
+html[lang*="fs"] {
+    .logo {
+        &:before {
+          content: '';
+          width: 80px;
+          height: 80px;
+          display: block;
+          background-image: url(../images/fivestar-logo.png);
+          background-size: contain;
+          background-repeat: no-repeat;
+          vertical-align: middle;
+        }
+    }
+    h5,
+    h6 {
+    color: v.$fivestar-red;
+    }
+    a {
+        color: v.$fivestar-red;
+        &:hover {
+            color: v.$fivestar-red;
+        }
+    }
+    .cookiesjsr-layer {
+        .cookiesjsr-service-group--tab,
+        .cookiesjsr-service-group--content {
+            background: v.$fivestar-red;
+        }
+    }
+    .paragraph--type--accordion {
+        .ckeditor-accordion-container {
+            dl {
+                dt {
+                    a {
+                        color: #000;
+                    }
+                    &.active {
+                        a {
+                            color: v.$fivestar-red;
+                        }
+                        &:before {
+                            color: v.$fivestar-red;
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+    .event-wrapper {
+        time {
+            color: v.$fivestar-red;
+        }
+    }
+    footer {
+        background: v.$fivestar-grey;
+        color: #333;
+        b, strong {
+            color: #333;
+        }
+        a {
+            color: v.$fivestar-red;
+            font-weight: 500;
+            &:hover {
+                color: v.$fivestar-red-dark;
+            }
+        }
+        #footer-bottom {
+            color: #fff;
+            background: v.$fivestar-red;
+            a {
+                color: #fff;
+                &:hover {
+                    color: #eee;
+                }
+            }
+        }
+    }
+}
+
+/* Profi Club
+-------------------------------------------------- */
+html[lang*="pc"] {
+    .logo {
+        &:before {
+          content: '';
+          width: 120px;
+          height: 50px;
+          display: block;
+          background-image: url(../images/proficlub-logo.png);
+          background-size: contain;
+          background-repeat: no-repeat;
+          vertical-align: middle;
+        }
+    }
+    h5,
+    h6 {
+    color: v.$proficlub-red;
+    }
+    a {
+        color: v.$proficlub-red;
+        &:hover {
+            color: v.$proficlub-red;
+        }
+    }
+    .slider-markup-container {
+        .slider-markup {
+            date {
+                background: v.$proficlub-red;
+            }
+        }
+    }
+    .cookiesjsr-layer {
+        .cookiesjsr-service-group--tab,
+        .cookiesjsr-service-group--content {
+            background: v.$proficlub-red;
+        }
+    }
+    .paragraph--type--accordion {
+        .ckeditor-accordion-container {
+            dl {
+                dt {
+                    a {
+                        color: #000;
+                    }
+                    &.active {
+                        a {
+                            color: v.$proficlub-red;
+                        }
+                        &:before {
+                            color: v.$proficlub-red;
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+    .event-wrapper {
+        time {
+            color: v.$proficlub-red;
+        }
+    }
+    footer {
+        background: #fff;
+        color: #000;
+        border-top: 1px solid #ddd;
+        a {
+            color: #000;
+            &:hover {
+                color: v.$proficlub-red;
+            }
+        }
+        #footer-bottom {
+            color: #fff;
+            background: v.$proficlub-red;
+            a {
+                color: #fff;
+                &:hover {
+                    color: #eee;
+                }
+            }
+        }
+    }
+}
+
+/* Repanet
+-------------------------------------------------- */
+html[lang*="rn"] {
+    .logo {
+        &:before {
+          content: '';
+          width: 170px;
+          height: 60px;
+          display: block;
+          background-image: url(../images/repanet-logo.png);
+          background-size: contain;
+          background-repeat: no-repeat;
+          vertical-align: middle;
+        }
+    }
+    h5,
+    h6 {
+    color: v.$repanet-blue;
+    }
+    a {
+        color: v.$repanet-blue;
+        &:hover {
+            color: v.$repanet-blue;
+        }
+    }
+    .cookiesjsr-layer {
+        .cookiesjsr-service-group--tab,
+        .cookiesjsr-service-group--content {
+            background: v.$repanet-blue;
+        }
+    }
+    .paragraph--type--accordion {
+        .ckeditor-accordion-container {
+            dl {
+                dt {
+                    a {
+                        color: #000;
+                    }
+                    &.active {
+                        a {
+                            color: v.$repanet-blue;
+                        }
+                        &:before {
+                            color: v.$repanet-blue;
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+    .event-wrapper {
+        time {
+            color: v.$repanet-blue;
+        }
+    }
+    footer {
+        background: v.$repanet-grey;
+        color: #000;
+        a {
+            color: #000;
+            &:hover {
+                color: v.$repanet-blue;
+            }
+        }
+        #footer-bottom {
+            color: #fff;
+            background: v.$repanet-blue;
+            a {
+                color: #fff;
+                font-weight: 500;
+                &:hover {
+                    color: #ccc;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,5 @@
+name: Anchor TOC
+type: module
+description: Add an Anchor Table of Contents field and block.
+package: Custom
+core_version_requirement: ^9 || ^10

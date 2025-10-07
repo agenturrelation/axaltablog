@@ -1,0 +1,6 @@
+google_maps.settings_form:
+  title: 'Google Maps'
+  description: 'Configure Google Maps.'
+  parent: system.admin_config_system
+  route_name: google_maps.settings_form
+  weight: 10

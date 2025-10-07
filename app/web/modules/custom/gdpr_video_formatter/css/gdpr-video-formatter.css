@@ -1,0 +1,115 @@
+
+.gdpr-video-wrapper,
+.gdpr-video-wrapper iframe {
+  max-width: 100%;
+}
+
+.gdpr-video-wrapper + .gdpr-video-wrapper {
+  margin-top: 1.5rem;
+}
+
+.gdpr-video-inner-wrapper {
+  background: #000;
+  overflow: hidden;
+  height: 0;
+  padding-bottom: 56.25%;
+  position: relative;
+}
+
+.gdpr-video-thumb-wrapper {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.gdpr-video-title {
+  position: absolute;
+  left:0;
+  top:0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  min-height: 52px;
+  flex-direction: column;
+  background-image: linear-gradient(to bottom,rgba(0,0,0,0.6),rgba(0,0,0,0));
+}
+
+.gdpr-video-title span {
+  display: inline-block;
+  color: #fff;
+  font-size: 18px;
+  padding:0 15px;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  opacity: 0.85;
+}
+
+button.gdpr-play-btn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 68px;
+  height: 48px;
+  margin-left: -34px;
+  margin-top: -24px;
+  -webkit-transition: opacity .25s cubic-bezier(0,0,0.2,1);
+  transition: opacity .25s cubic-bezier(0,0,0.2,1);
+}
+
+button.gdpr-play-btn,
+button.gdpr-play-btn:hover {
+  background: transparent;
+  padding: 0;
+}
+
+button.gdpr-play-btn svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.gdpr-video-consent {
+  margin-top: 1rem;
+  line-height: 105%;
+}
+
+.gdpr-video-consent span {
+  opacity: 0.75;
+}
+
+/* Play button */
+.ytp-large-play-button-bg {
+  -webkit-transition: fill .1s cubic-bezier(0.4,0,1,1),fill-opacity .1s cubic-bezier(0.4,0,1,1);
+  transition: fill .1s cubic-bezier(0.4,0,1,1),fill-opacity .1s cubic-bezier(0.4,0,1,1);
+  fill: #212121;
+  fill-opacity: .8;
+}
+
+/* Hover state */
+.gdpr-video-thumb-wrapper:hover {
+  cursor: pointer;
+}
+
+.gdpr-video-thumb-wrapper:hover .ytp-large-play-button-bg {
+  -webkit-transition: fill .1s cubic-bezier(0,0,0.2,1),fill-opacity .1s cubic-bezier(0,0,0.2,1);
+  transition: fill .1s cubic-bezier(0,0,0.2,1),fill-opacity .1s cubic-bezier(0,0,0.2,1);
+  fill: #f00;
+  fill-opacity: 1;
+}
+
+.gdpr-video-wrapper iframe {
+  max-width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100% !important;
+}

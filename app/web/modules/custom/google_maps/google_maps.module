@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Google Maps module.
+ */
+
+
+/**
+ * Implements hook_theme().
+ */
+function google_maps_theme($existing, $type, $theme, $path) {
+  return [
+    'google_map' => array(
+      'variables' => array(
+        'width' => NULL,
+        'height' => NULL,
+        'legend' => NULL,
+      ),
+    ),
+    'google_maps_legend' => array(
+      'variables' => array(
+        'items' => NULL,
+      ),
+    ),
+    'google_maps_info_window' => array(
+      'variables' => array(
+        'ident' => NULL,
+        'location_name' => NULL,
+        'show_address' => FALSE,
+        'address' => NULL,
+        'formatted_address' => NULL,
+        'show_contact' => FALSE,
+        'phone' => NULL,
+        'email' => NULL,
+        'website' => NULL,
+        'markup' => NULL,
+      ),
+    ),
+  ];
+}

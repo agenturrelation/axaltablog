@@ -1,0 +1,189 @@
+@use "../libraries/puzzle/src/scss/variables" as v;
+
+  /* roboto-condensed-regular - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/roboto-condensed-v30-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+  /* roboto-condensed-700 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/roboto-condensed-v30-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+  /* poppins-300 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    src: url('../fonts/poppins-v23-latin-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* poppins-500 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/poppins-v23-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  @font-face {
+    font-family: 'fa-brands';
+    src:  url('../fonts/fa-brands.eot?ota7hp');
+    src:  url('../fonts/fa-brands.eot?ota7hp#iefix') format('embedded-opentype'),
+      url('../fonts/fa-brands.ttf?ota7hp') format('truetype'),
+      url('../fonts/fa-brands.woff?ota7hp') format('woff'),
+      url('../fonts/fa-brands.svg?ota7hp#fa-brands') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+
+  [class^="fa-"], [class*=" fa-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'fa-brands' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .fa-dropbox:before {
+    content: "\e900";
+  }
+  .fa-facebook-messenger:before {
+    content: "\e901";
+  }
+  .fa-facebook:before {
+    content: "\e902";
+  }
+  .fa-google:before {
+    content: "\e903";
+  }
+  .fa-instagram:before {
+    content: "\e904";
+  }
+  .fa-kununu:before {
+    content: "\e905";
+  }
+  .fa-linkedin-in:before {
+    content: "\e906";
+  }
+  .fa-pinterest:before {
+    content: "\e907";
+  }
+  .fa-skype:before {
+    content: "\e908";
+  }
+  .fa-telefon:before {
+    content: "\e909";
+  }
+  .fa-tiktok:before {
+    content: "\e90a";
+  }
+  .fa-whatsapp:before {
+    content: "\e90b";
+  }
+  .fa-x:before {
+    content: "\e90c";
+  }
+  .fa-youtube:before {
+    content: "\e90d";
+  }
+  
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: v.$default-headline-family; 
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1.1em;
+}
+h1 {
+  position: relative;
+  font-size: 3.5rem;
+  padding: 0.3em 0 .5em;
+  color: #fff;
+}
+main {
+  h1 {
+  color: #000;
+}
+}
+h2 {
+  font-size: 2.3em;
+  position: relative;
+  display: block;
+  width: auto;
+  padding: 0 0 1em;
+} 
+h3 {
+  font-size: 2em;
+  padding: 1em 0 0.8em;
+}
+h4 {
+  font-size: 1.8em;
+  padding: 1.4em 0 0.5em;
+}
+h5 {
+	font-size: 1.6em;
+	padding: 1.2em 0 0.5em;
+  }
+h6 {
+	font-size: 1.4em;
+	padding: 0.3em 0 0.5em;
+}
+a {
+	text-decoration: none;
+	font-weight: 300;
+  transition: all .3s;
+	}
+b, strong {
+ 	font-weight: 500;
+	}
+.text-center {
+	text-align: center !important;
+	}
+address {
+	display: block;
+  	font-style: normal;
+	}
+p {
+	margin: 0 0 v.$margin-m 0;
+	}
+.lh-0 {
+  line-height: 0;
+}
+.paragraph--body ul {
+	padding-left: 20px;
+	margin-bottom: 1.5rem;
+	}
+.paragraph--type--html ul {
+  column-count: 2;
+  li {
+    padding: 0 0 v.$padding-s 0 !important;
+    margin: 0 !important;
+    list-style: none;
+    &:before {
+      content: '';
+      display: none;
+      opacity: 0;
+    }
+  }
+}

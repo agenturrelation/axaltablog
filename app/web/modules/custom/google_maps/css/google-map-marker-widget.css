@@ -1,0 +1,24 @@
+
+.google-map-marker-widget {
+  display:flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 0 1rem;
+}
+
+.google-map-marker-widget .google-places-autocomplete {
+  flex: 1;
+}
+
+.google-map-marker-widget .google-places-autocomplete input {
+  width: 100%;
+}
+
+.google-map-marker-widget > details {
+  margin-top: 0;
+}
+
+/* Hide duplicate description */
+.google-map-marker-widget .google-places-autocomplete > *:last-child {
+  display: none;
+}

@@ -1,0 +1,13 @@
+gdpr_video_formatter.settings:
+  type: config_object
+  label: 'GDPR video formatter config'
+  mapping:
+    consent_text_youtube:
+      type: text
+      label: 'GDPR consent text for YouTube'
+    consent_text_vimeo:
+      type: text
+      label: 'GDPR consent text for Vimeo'
+    consent_button_label:
+      type: text
+      label: 'Confirmation button label'

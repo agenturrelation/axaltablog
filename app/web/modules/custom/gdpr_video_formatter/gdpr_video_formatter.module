@@ -1,0 +1,113 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for GDPR Video Formatter module.
+ *
+ */
+
+use Drupal\gdpr_video_formatter\YouTubeApiRequest;
+use Drupal\media\MediaInterface;
+
+
+const FIELD_NAME_DESCRIPTION = "field_media_description";
+const FIELD_NAME_UPLOAD_DATE = "field_media_upload_date";
+
+/**
+ * Implements hook_theme().
+ */
+function gdpr_video_formatter_theme() {
+  return [
+    'gdpr_video_formatter' => [
+      'variables' => [
+        'provider_name' => NULL,
+        'max_width' => 480,
+        'video_id' => NULL,
+        'video_title' => NULL,
+        'video_description' => NULL,
+        'video_upload_date' => NULL,
+        'video_width' => NULL,
+        'video_height' => NULL,
+        'thumbnail_image' => NULL,
+        'thumbnail_responsive_image' => NULL,
+        'thumbnail_image_url' => NULL,
+        'consent_text' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function gdpr_video_formatter_media_presave(MediaInterface $entity) {
+
+  // Check if fetching matadata is enabled in module settings.
+  $config = \Drupal::config('gdpr_video_formatter.settings');
+  if (!$config->get('youtube_api.fetch_metadata')) {
+    return;
+  }
+
+  if ($entity->bundle() == 'remote_video' && $entity->isNew()) {
+    // Is new Media Entity from type "remote_video".
+    if ($entity->hasField('field_media_oembed_video') &&
+      ($entity->hasField(FIELD_NAME_DESCRIPTION) || $entity->hasField(FIELD_NAME_UPLOAD_DATE))
+    ) {
+      // Additional fields are available.
+      $oembed_video_value = $entity->get('field_media_oembed_video')
+        ->getValue();
+      if (!empty($oembed_video_value[0]['value'])) {
+        // Set video url.
+        $video_url = $oembed_video_value[0]['value'];
+        // dsm($video_url, 'videourl');
+
+        // Parse YouTube video id:
+        // Here is a sample of the URLs this regex matches: (there can be more content after the given URL that will be ignored)
+
+        // http://youtu.be/dQw4w9WgXcQ
+        // http://www.youtube.com/embed/dQw4w9WgXcQ
+        // http://www.youtube.com/watch?v=dQw4w9WgXcQ
+        // http://www.youtube.com/?v=dQw4w9WgXcQ
+        // http://www.youtube.com/v/dQw4w9WgXcQ
+        // http://www.youtube.com/e/dQw4w9WgXcQ
+        // http://www.youtube.com/user/username#p/u/11/dQw4w9WgXcQ
+        // http://www.youtube.com/sandalsResorts#p/c/54B8C800269D7C1B/0/dQw4w9WgXcQ
+        // http://www.youtube.com/watch?feature=player_embedded&v=dQw4w9WgXcQ
+        // http://www.youtube.com/?feature=player_embedded&v=dQw4w9WgXcQ
+
+        // It also works on the youtube-nocookie.com URL with the same above options.
+        // It will also pull the ID from the URL in an embed code (both iframe and object tags)
+        preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $video_url, $match);
+        $youtube_id = !empty($match[1]) ? $match[1] : '';
+        if (!empty($youtube_id)) {
+          // dsm($youtube_id, '$youtube_id');
+
+          // Set YouTubeApiRequest.
+          /** @var YouTubeApiRequest $youTubeApiRequest */
+          $youTubeApiRequest = \Drupal::getContainer()
+            ->get(YouTubeApiRequest::class);
+
+          // Fetch video metadata from YouTube API.
+          $result = $youTubeApiRequest->fetchVideoMetadata($youtube_id);
+          if (!empty($result['items'][0])) {
+            // Store fetched data in fields.
+            if ($entity->hasField(FIELD_NAME_DESCRIPTION)) {
+              $entity->set(FIELD_NAME_DESCRIPTION, !empty($result['items'][0]['snippet']['description']) ? $result['items'][0]['snippet']['description'] : '');
+            }
+            if ($entity->hasField(FIELD_NAME_UPLOAD_DATE)) {
+              $date = '';
+              if (!empty($result['items'][0]['snippet']['publishedAt'])) {
+                $dateTime = new \DateTime($result['items'][0]['snippet']['publishedAt']);
+                $date = $dateTime->format('Y-m-d\TH:i:s');
+              }
+              $entity->set(FIELD_NAME_UPLOAD_DATE, $date);
+            }
+            // dsm($entity->get(FIELD_NAME_DESCRIPTION)->getValue(), 'desc');
+            // dsm($entity->get(FIELD_NAME_UPLOAD_DATE)->getValue(), 'date');
+          }
+        }
+      }
+    }
+  }
+
+}

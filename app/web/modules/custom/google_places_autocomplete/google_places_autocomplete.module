@@ -1,0 +1,65 @@
+<?php
+
+use Drupal\Core\Template\Attribute;
+
+/**
+ * @file
+ * Primary module hooks for Google Places Autocomplete module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function google_places_autocomplete_theme($existing, $type, $theme, $path) {
+  return [
+    'google_places_autocomplete_form' => [
+      'render element' => 'element',
+    ],
+    'google_places_autocomplete_wrapper' => [
+      'render element' => 'element',
+    ]
+  ];
+}
+
+function template_preprocess_google_places_autocomplete_form(&$variables) {
+  $element = $variables['element'];
+
+  $variables['attributes'] = [];
+  if (isset($element['#id'])) {
+    $variables['attributes']['id'] = $element['#id'];
+  }
+  if (!empty($element['#attributes']['class'])) {
+    $variables['attributes']['class'] = (array) $element['#attributes']['class'];
+  }
+
+  $variables['content'] = $element;
+}
+
+function template_preprocess_google_places_autocomplete_wrapper(&$variables) {
+  $element = $variables['element'];
+
+  if (!empty($element['#title'])) {
+    $variables['title'] = $element['#title'];
+  }
+
+  // Suppress error messages.
+  $variables['errors'] = NULL;
+
+  $variables['description'] = NULL;
+  if (!empty($element['#description'])) {
+    $description_attributes = [];
+    if (!empty($element['#id'])) {
+      $description_attributes['id'] = $element['#id'] . '--description';
+    }
+    $variables['description'] = $element['#description'];
+    $variables['description_attributes'] = new Attribute($description_attributes);
+  }
+
+  $variables['required'] = FALSE;
+  // For required datetime fields 'form-required' & 'js-form-required' classes
+  // are appended to the label attributes.
+  if (!empty($element['#required'])) {
+    $variables['required'] = TRUE;
+  }
+  $variables['content'] = $element['#children'];
+}

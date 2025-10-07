@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function roebkes_misc_theme() {
+  return [
+    'roebkes_misc_header_search_form' => [
+      'render element' => 'form',
+    ],
+  ];
+}

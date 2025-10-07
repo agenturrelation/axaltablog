@@ -1,0 +1,25 @@
+<div class="google-places-autocomplete">
+  {%
+    set title_classes = [
+    required ? 'js-form-required',
+    required ? 'form-required',
+    'label'
+  ]
+  %}
+  {#
+  {% if title %}
+    <h4{{ title_attributes.addClass(title_classes) }}>{{ title }}</h4>
+  {% endif %}
+  #}
+  {{ content }}
+  {% if errors %}
+    <div>
+      {{ errors }}
+    </div>
+  {% endif %}
+  {% if description %}
+    <div{{ description_attributes }}>
+      {{ description }}
+    </div>
+  {% endif %}
+</div>

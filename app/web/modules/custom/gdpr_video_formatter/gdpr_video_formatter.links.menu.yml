@@ -1,0 +1,6 @@
+gdpr_video_formatter.settings_form:
+  title: GDPR Video Formatter
+  description: Configure GDPR Video Formatter.
+  parent: system.admin_config_system
+  route_name: gdpr_video_formatter.settings_form
+  weight: 10

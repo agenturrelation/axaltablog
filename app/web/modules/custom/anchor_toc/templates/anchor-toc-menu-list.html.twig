@@ -1,0 +1,11 @@
+{% if links|length > 0 %}
+  <nav class="anchor-toc" data-atoc-offset-pos="top" data-atoc-offset="40">
+    <ul class="anchor-toc-items">
+      {% for link in links %}
+        <li>
+          <a href="#{{ link.anchor }}">{{ link.label }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+{% endif %}

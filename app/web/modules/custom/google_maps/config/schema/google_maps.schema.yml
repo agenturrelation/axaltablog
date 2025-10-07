@@ -1,0 +1,39 @@
+field.value.google_map:
+  type: mapping
+  label: Default value
+  mapping:
+    value:
+      type: label
+      label: Value
+
+field.formatter.settings.google_map:
+  type: mapping
+  label: Google Map formatter settings
+  mapping:
+    foo:
+      type: string
+      label: Foo
+
+field.field_settings.google_maps_dummy_configureable:
+  type: mapping
+  label: Dummy configureable field settings
+  mapping:
+    bar:
+      type: string
+      label: Bar
+
+field.value.google_maps_dummy_configureable:
+  type: mapping
+  label: Default value
+  mapping:
+    value:
+      type: label
+      label: Value
+
+field.value.google_maps_sdsdsd:
+  type: mapping
+  label: Default value
+  mapping:
+    value:
+      type: label
+      label: Value

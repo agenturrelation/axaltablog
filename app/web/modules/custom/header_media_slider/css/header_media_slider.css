@@ -1,0 +1,79 @@
+.header-media-slider {
+  overflow: hidden;
+  position: relative;
+}
+.header-media-slider,
+.header-media-slider .splide__track {
+  overflow: visible;
+}
+
+.header-media-slider .slider-markup-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+.header-media-slider .vertical-align--top .slider-markup-container {
+  align-items: flex-start;
+}
+
+.header-media-slider .vertical-align--middle .slider-markup-container {
+  align-items: center;
+}
+
+.header-media-slider .vertical-align--bottom .slider-markup-container {
+  align-items: flex-end;
+}
+
+.header-media-slider .text-align--left .slider-markup-container {
+  justify-content: flex-start;
+  text-align: left !important;
+}
+.header-media-slider .text-align--left .slider-markup-container h1,
+.header-media-slider .text-align--left .slider-markup-container h2,
+.header-media-slider .text-align--left .slider-markup-container h3,
+.header-media-slider .text-align--left .slider-markup-container h4,
+.header-media-slider .text-align--left .slider-markup-container h5,
+.header-media-slider .text-align--left .slider-markup-container h6 {
+  text-align: left !important;
+}
+
+.header-media-slider .text-align--center .slider-markup-container {
+  justify-content: center;
+  text-align: center !important;
+}
+
+.header-media-slider .text-align--right .slider-markup-container {
+  justify-content: flex-end;
+  text-align: right !important;
+}
+
+.header-media-slider .text-align--right .slider-markup-container h1,
+.header-media-slider .text-align--right .slider-markup-container h2,
+.header-media-slider .text-align--right .slider-markup-container h3,
+.header-media-slider .text-align--right .slider-markup-container h4,
+.header-media-slider .text-align--right .slider-markup-container h5,
+.header-media-slider .text-align--right .slider-markup-container h6 {
+  text-align: right !important;
+}
+
+.header-media-slider .text-align--center .slider-markup,
+.header-media-slider .text-align--center .slider-markup .slider-content {
+  text-align: center;
+  margin: auto;
+}
+
+/* Media image */
+.header-media-slider .slider-media picture img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center center;
+  object-position: center center;
+}

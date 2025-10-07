@@ -1,0 +1,476 @@
+/* ==================================================================
+R E S P O N S I V E
+------------------------------------------------------------------ */
+@use "../libraries/puzzle/src/scss/variables" as v;
+
+@-ms-viewport {
+	width: device-width;
+}
+
+/* ==================================================================
+S M A L L - D E V I C E  <  5 7 6 p x
+------------------------------------------------------------------ */
+@media only screen and (min-width: v.$breakpoint-x) {
+
+	[id*="edit-formularfelder"],
+	[id*="edit-berufsbezeichnung"] {
+		.form-item {
+			width: calc(50% - .25em) !important;
+		}
+	}
+}
+
+/* ==================================================================
+T A B L E T - P C  <  7 6 8 p x
+------------------------------------------------------------------ */
+@media only screen and (min-width: v.$breakpoint-s) {
+	#page {
+		#header {
+			.navbar {
+				padding: v.$padding-s 0;
+
+				#block-axalta-lupe {
+					margin-right: v.$margin-m;
+				}
+			}
+		}
+
+		.language-switcher-language-url {
+
+			ul {
+				&:before {
+					font-size: 1.50em;
+					font-family: 'Material Symbols Outlined' !important;
+					font-style: normal;
+					font-variant: normal;
+					text-transform: none;
+					font-weight: 200;
+					line-height: 0;
+					-webkit-font-smoothing: antialiased;
+					-moz-osx-font-smoothing: grayscale;
+					content: 'language';
+					display: inline-block;
+					position: relative;
+					left: 0;
+					top: 6px;
+				}
+			}
+		}
+	}
+
+	#menu-wrapper {
+		.main-menu-wrapper {
+			padding: 0 v.$padding-xl;
+		}
+
+		.service-menu-wrapper {
+			padding: 0 v.$padding-xl;
+		}
+	}
+
+	.paragraph--type--testimonials {
+
+		&:before {
+			content: '';
+			display: block;
+			width: 6vw;
+			height: 100%;
+			position: absolute;
+			z-index: 99;
+			top: 0;
+			left: 0;
+		}
+
+		&:after {
+			content: '';
+			display: block;
+			width: 6vw;
+			height: 100%;
+			position: absolute;
+			z-index: 99;
+			top: 0;
+			right: 0;
+		}
+	}
+
+	.paragraph--type--gallery {
+		padding: v.$padding-xl 0;
+
+		.lightbox-gallery {
+
+			&:before {
+				content: '';
+				display: block;
+				width: 5vw;
+				height: 100%;
+				position: absolute;
+				z-index: 99;
+				top: 0;
+				left: 0;
+			}
+
+			&:after {
+				content: '';
+				display: block;
+				width: 5vw;
+				height: 100%;
+				position: absolute;
+				z-index: 99;
+				top: 0;
+				right: 0;
+			}
+		}
+	}
+
+	[id*="counters_"] {
+		padding-top: v.$padding-xl !important;
+		padding-bottom: v.$padding-xl !important;
+	}
+
+	.form-item,
+	.radio-item,
+	input,
+	input[type="submit"],
+	button:not(.trigger),
+	[data-webform-key="extra"] .form-item.js-form-type-checkbox label {
+
+		input:not([type="checkbox"])+label,
+		input:not([type="submit"]),
+		textarea,
+		select {
+			font: v.$font2;
+		}
+	}
+
+	.reference-teaser {
+		.references-overview-wrapper {
+			.reference-wrapper {
+				columns: 3;
+				column-gap: v.$margin-xl;
+			}
+		}
+	}
+
+	main {
+		.inner-wrapper {
+			padding-top: v.$padding-l;
+			padding-bottom: v.$padding-l;
+		}
+	}
+
+	footer {
+		.logo {
+			width: 220px;
+			height: auto;
+		}
+	}
+	#axalta-header-search-form {
+		&.open {
+			.cmhsf-wrapper {
+			  #cmhsf-inner {
+				position: absolute;
+				display: block;
+				top: 60px;
+				left: calc(-100vw + (v.$margin-xl * 2) + 70px + v.$margin-s);
+				width: 100%;
+	  
+				input {
+				  width: calc(100vw - v.$margin-xl * 2);
+				}
+			  }
+			}
+		  }
+	}
+
+	#axalta-header-search-form {
+		margin-right: 30px !important;
+	  }
+	  #header .language-switcher-language-url {
+		padding: 3px 22px 0 0;
+	  }
+}
+
+/* ==================================================================
+S M A L L  D I S P L A Y S  <  1 0 2 4 p x
+------------------------------------------------------------------ */
+
+@media only screen and (min-width: v.$breakpoint-m) {
+	.mediaslide-wrapper {
+	  top: 70px;
+	}
+	#page {
+		#header {
+			height: 110px;
+			.navbar {
+				padding: v.$padding-s 0;
+
+				#logo {
+					img {
+						padding-top: 0;
+						width: 220px;
+					}
+				}
+
+				#block-axalta-lupe {
+					margin-right: v.$margin-l;
+				}
+			}
+		}
+	}
+
+	.paragraph--type--timeline,
+	.paragraph--type--testimonials {
+		padding: v.$padding-xxl 0;
+	}
+
+	.text-image-container:nth-child(odd) .text-image-wrapper {
+		flex-direction: row-reverse;
+	}
+
+	#axalta-header-search-form {
+		ul {
+			&.cmhsf-categories {
+				margin-top: 1.5rem;
+				position: absolute;
+				display: block !important;
+				width: calc(66.666667vw - 16em);
+			}
+			button {
+				text-align: left;
+				font-weight: 400;
+				border: none;
+				font-size: 1em;
+				padding: 4px 0;
+				color: white;
+				display: inline;
+				width: 32% !important;
+				animation-duration: .3s;
+				animation-fill-mode: both;
+				animation-name: fadeInDown;
+				animation-delay: .4s;
+			  }
+		}
+		&.open {
+			.cmhsf-wrapper {
+			  #cmhsf-inner {
+				position: relative;
+				display: block;
+				width: auto;
+				max-width: 5000px;
+				transition: max-width 1s;
+				top: 0;
+				right: 0;
+				left: 0;
+	  
+				input {
+				  width: calc(66.666667vw - 70px - 14em);
+				}
+			  }
+			}
+		  }
+	}
+
+	#main-menu-toggle {
+		display: none;
+	}
+
+	#menu-wrapper {
+		display: block;
+		z-index: 9;
+		position: relative;
+		width: auto;
+		height: auto;
+		display: flex;
+		flex-direction: column-reverse;
+		.main-menu-wrapper {
+			display: flex;
+			justify-content: flex-end;
+			padding: 0;
+			#main-menu {
+				ul {
+					li {
+					display: inline-block;
+					a {
+						font-size: 1.1rem;
+					}
+					}
+				}
+			}
+		}
+		.service-menu-wrapper {
+			padding: 0;
+			position: relative;
+			bottom: 0;
+		}
+	}
+
+	.text-image-wrapper {
+		img {
+			flex: 1;
+		}
+	}
+
+	.column-2 {
+		columns: 2;
+		column-gap: v.$margin-xl;
+	}
+
+	.node--job_offer {
+		.content-wrapper {
+			padding: v.$padding-xxxl 0;
+		}
+
+		h1 {
+			font-size: 4em;
+			padding: .1em 0 .6em 0;
+		}
+	}
+
+	.references-overview-wrapper {
+		.reference-wrapper {
+			columns: 2;
+			column-gap: v.$margin-xl;
+		}
+	}
+
+	aside {
+		margin-top: 0 !important;
+		padding: 0 2.5em;
+	}
+
+	.md-slide-item {
+		.md-main-img {
+			&:before {
+				content: '';
+				display: none;
+			}
+		}
+
+		.md-objects {
+			transform: scale(1);
+			left: 5vw;
+			text-shadow: none;
+		}
+	}
+
+	#block-webformular,
+	.paragraph-wrapper {
+		padding-top: v.$margin-m !important;
+		padding-bottom: v.$margin-m !important;
+	}
+
+	.slider-markup-container {
+		.slider-markup {
+			.slider-content {
+				max-width: v.$breakpoint-m;
+				padding-top: v.$padding-m;
+				opacity: 0;
+				position: relative;
+				z-index: 10;
+				color: white;
+
+				h1 {
+				font-size: 3rem;
+				}
+
+				h2 {
+				font-size: 2.3rem;
+				}
+
+				h3 {
+				font-size: 2em;
+				}
+
+				h4 {
+				font-size: 1.8rem;
+				}
+
+				h5 {
+				font-size: 1.6rem;
+				}
+
+				h6 {
+				font-size: 1.4rem;
+				}
+			}
+		}
+	}
+
+	main {
+		.inner-wrapper {
+			padding-top: v.$padding-xl;
+			padding-bottom: v.$padding-xl;
+		}
+	}
+
+	.paragraph--type--gallery {
+		padding: v.$padding-xl 0 v.$padding-xxl;
+	}
+
+	.paragraph--type--counter {
+		padding: v.$padding-xxl 0;
+	}
+
+	footer {
+		.logo {
+			width: 250px;
+			height: auto;
+		}
+	}
+}
+
+/* ==================================================================
+B I G  D I S P L A Y S  <  1 2 8 0 p x
+------------------------------------------------------------------ */
+
+@media only screen and (min-width: v.$breakpoint-l) {
+
+	#block-webformular,
+	.paragraph-wrapper {
+		padding-top: v.$margin-l !important;
+		padding-bottom: v.$margin-l !important;
+	}
+
+}
+
+/* ==================================================================
+B I G  D I S P L A Y S  <  1 4 0 0 p x
+------------------------------------------------------------------ */
+@media only screen and (min-width: v.$breakpoint-xl) {
+
+	#block-webformular,
+	.paragraph-wrapper {
+		padding-top: v.$margin-xl !important;
+		padding-bottom: v.$margin-xl !important;
+	}
+
+	[id*="counters_"] {
+		.counter-box {
+			padding: v.$padding-l 0;
+		}
+	}
+
+	#axalta-header-search-form {
+		ul {
+			button {
+				width: 24% !important;
+			  }
+		}
+	}
+}
+
+/* ==================================================================
+B I G  D I S P L A Y S  <  1 6 0 0 p x
+------------------------------------------------------------------ */
+@media only screen and (min-width: v.$breakpoint-xxl) {
+	#block-webformular,
+	.paragraph-wrapper {
+		padding-top: v.$margin-xxl !important;
+		padding-bottom: v.$margin-xxl !important;
+	}
+
+	.paragraph--type--gallery {
+		padding-bottom: v.$padding-xxxl;
+
+	}
+}

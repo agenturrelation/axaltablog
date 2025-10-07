@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Contains cookies_google_maps.module.
+ */
+
+use Drupal\cookies\CookiesKnockOutService;
+
+/**
+ * Implements hook_page_attachments().
+ * Not in use.
+ */
+function __cookies_google_maps_page_attachments(&$page) {
+  // Attach you library that heals the knock-out.
+  $doKo = CookiesKnockOutService::getInstance()->doKnockOut();
+  if ($doKo) {
+    $page["#attached"]["library"][] = 'cookies_google_maps/default';
+  }
+}

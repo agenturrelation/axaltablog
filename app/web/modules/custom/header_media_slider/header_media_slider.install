@@ -1,0 +1,25 @@
+<?php
+
+use Drupal\responsive_image\Entity\ResponsiveImageStyle;
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Header Media Slider module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function header_media_slider_install($is_syncing) {
+  // Create responsive image style.
+  $style_name = 'header_media_slider_image';
+  $existing = ResponsiveImageStyle::load($style_name);
+  if (!$existing) {
+    ResponsiveImageStyle::create([
+      'id' => $style_name,
+      'label' => 'Header Media Slider Image',
+      'breakpoint_group' => 'responsive_image',
+      'fallback_image_style' => '_original image_'
+    ])->save();
+  }
+}

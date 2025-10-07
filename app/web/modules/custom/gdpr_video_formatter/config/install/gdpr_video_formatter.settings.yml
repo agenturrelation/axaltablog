@@ -1,0 +1,5 @@
+langcode: 'en'
+consent_text_youtube: 'By playing this video, you load content from YouTube, a service of Google LLC. For information on how Google may use your data see the <a target="_google" href="https://privacy.google.com/businesses/compliance#gdpr">Google privacy policy</a>.'
+consent_text_vimeo: 'By playing this video, you load content from Vimeo. For information on how Vimeo may use your data see the <a target="_vimeo" href="https://vimeo.com/privacy">Vimeo privacy policy</a>.'
+consent_button_label: "I'm ok with this"
+

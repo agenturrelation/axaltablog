@@ -1,0 +1,23 @@
+# Field widget: 'google_map_marker':
+google_map_marker_widget:
+  css:
+    component:
+      css/google-map-marker-widget.css: {}
+
+# Google Map.
+google_map:
+  js:
+    js/google-map.js: {}
+  css:
+    component:
+      css/google-map.css: { }
+  dependencies:
+    - core/drupal
+    - core/once
+    - core/drupalSettings
+    - core/drupal.ajax
+
+# Google Maps JS API loader:
+googlemaps-js-api-loader:
+  js:
+    /libraries/googlemaps--js-api-loader/dist/index.min.js: { minified: true }

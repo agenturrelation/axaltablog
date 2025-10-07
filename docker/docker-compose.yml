@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  database:
+    build:
+      context: ./database
+    platform: linux/x86_64
+    container_name: axaltablog-drupal-mysql
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "3307:3306"
+    volumes:
+      # - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./database/data:/var/lib/mysql
+  php-fpm:
+    build:
+      context: ./php-fpm
+    container_name: axaltablog-drupal-php
+    depends_on:
+      - database
+    env_file:
+      - .env
+    volumes:
+      - ../app:/var/www:delegated
+  nginx:
+    build:
+      context: ./nginx
+    container_name: axaltablog-drupal-nginx
+    volumes:
+      - ../app:/var/www:delegated
+      #- ./logs:/var/log
+    depends_on:
+      - php-fpm
+    ports:
+      - "81:80"
+      - "444:443"
+
+

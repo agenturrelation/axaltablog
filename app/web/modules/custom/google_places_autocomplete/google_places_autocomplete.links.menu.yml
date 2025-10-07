@@ -1,0 +1,6 @@
+google_places_autocomplete.settings_form:
+  title: 'Google Places Autocomplete'
+  description: 'Configure Google Places Autocomplete.'
+  parent: system.admin_config_system
+  route_name: google_places_autocomplete.settings_form
+  weight: 10

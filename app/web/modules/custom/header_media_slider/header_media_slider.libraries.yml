@@ -1,0 +1,22 @@
+# Custom module library for general purposes.
+header_media_slider:
+  js:
+    js/header_media_slider.js: {}
+  css:
+    component:
+      css/header_media_slider.css: {}
+  dependencies:
+    - core/drupal
+    - core/once
+    - header_media_slider/splide
+
+# Slide.js - Third-party library (self hosted).
+splide:
+  js:
+    /libraries/splidejs--splide/dist/js/splide.min.js: { minified: true }
+    /libraries/splidejs--splide-extension-video/dist/js/splide-extension-video.min.js: { minified: true }
+
+  css:
+    component:
+      /libraries/splidejs--splide/dist/css/splide.min.css: { minified: true }
+      /libraries/splidejs--splide-extension-video/dist/css/splide-extension-video.min.css: { minified: true }

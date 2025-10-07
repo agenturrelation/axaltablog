@@ -1,0 +1,25 @@
+google_places_autocomplete:
+  js:
+    js/google-places-autocomplete.js: {}
+  css:
+    component:
+      css/google-places-autocomplete.css: {}
+  dependencies:
+    - google_places_autocomplete/autocompleter
+
+google_places_autocomplete_element:
+  js:
+    js/google-places-autocomplete-element.js: { }
+  dependencies:
+    - core/drupal
+    - core/once
+    - google_places_autocomplete/google_places_autocomplete
+
+# autocompleter
+# https://github.com/kraaden/autocomplete
+autocompleter:
+  js:
+    /libraries/autocompleter/autocomplete.min.js: { minified: true }
+  css:
+    component:
+      /libraries/autocompleter/autocomplete.min.css: { minified: true }

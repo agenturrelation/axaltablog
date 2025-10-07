@@ -1,0 +1,4 @@
+services:
+  Drupal\gdpr_video_formatter\YouTubeApiRequest:
+    class: Drupal\gdpr_video_formatter\YouTubeApiRequest
+    autowire: true

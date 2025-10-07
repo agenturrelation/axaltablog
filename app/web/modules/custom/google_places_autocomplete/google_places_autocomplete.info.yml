@@ -1,0 +1,6 @@
+name: Google Places Autocomplete
+type: module
+description: Provides a Google Places autocomplete Form API field
+package: Custom
+core_version_requirement: ^9 || ^10
+configure: google_places_autocomplete.settings_form

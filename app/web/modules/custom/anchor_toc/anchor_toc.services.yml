@@ -1,0 +1,8 @@
+services:
+  plugin.manager.anchor_toc_default_items:
+    class: Drupal\anchor_toc\Plugin\AnchorTocDefaultItemsManager
+    parent: default_plugin_manager
+
+  Drupal\anchor_toc\AnchorTocTwigExtensions:
+    tags:
+      - { name: twig.extension }

@@ -1,0 +1,7 @@
+# Header search form
+header_search_form:
+  js:
+    js/roebkes-misc-header-search-form.js: { }
+  dependencies:
+    - core/drupal
+    - core/once

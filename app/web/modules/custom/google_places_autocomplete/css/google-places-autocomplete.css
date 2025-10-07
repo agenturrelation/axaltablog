@@ -1,0 +1,30 @@
+details.google-places-autocomplete-address .details-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 2%;
+  margin-top: 0.5rem;
+}
+
+details.google-places-autocomplete-address .details-wrapper .form-item,
+details.google-places-autocomplete-address .details-wrapper .form-item input,
+details.google-places-autocomplete-address .details-wrapper .form-item select {
+  width: 100%;
+}
+
+details.google-places-autocomplete-address .details-wrapper .google-places-autocomplete-street,
+details.google-places-autocomplete-address .details-wrapper .google-places-autocomplete-city {
+  width: 78%;
+}
+
+details.google-places-autocomplete-address .details-wrapper .google-places-autocomplete-street-no,
+details.google-places-autocomplete-address .details-wrapper .google-places-autocomplete-postal-code {
+  width: 20%;
+}
+
+details.google-places-autocomplete-address .details-wrapper .google-places-autocomplete-country {
+  width: 68%;
+}
+
+details.google-places-autocomplete-address .details-wrapper .google-places-autocomplete-state {
+  width: 30%;
+}

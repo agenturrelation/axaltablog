@@ -1,0 +1,27 @@
+# Main theme library.
+global:
+  js:
+    js/functions.js: {}
+  css:
+    theme:
+      libraries/puzzle/dist/css/style.css: { }
+      css/styles.css: { minified: true }
+  dependencies:
+    - core/drupal
+    - core/once
+    - icon_picker/iconset
+
+timeline_slider:
+  js:
+    js/timeline-slider.js: {}
+  dependencies:
+    - core/once
+    - image_slider/splide
+
+testimonials_slider:
+  js:
+    js/testimonials-slider.js: {}
+  dependencies:
+    - core/once
+    - image_slider/splide
+

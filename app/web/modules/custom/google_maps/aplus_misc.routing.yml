@@ -1,0 +1,41 @@
+aplus_misc.config:
+  path: '/admin/config/aplus-misc'
+  defaults:
+    _title: 'Aplus Misc Settings'
+  requirements:
+    _permission: 'administer aplus misc configuration'
+
+aplus_misc.settings_form:
+  path: '/admin/config/aplus-misc/settings'
+  defaults:
+    _title: 'Aplus Misc Settings'
+    _form: 'Drupal\aplus_misc\Form\SettingsForm'
+  requirements:
+    _permission: 'administer aplus misc configuration'
+
+# Request offer form.
+aplus_misc.request_offer_form:
+  path: '/request-offer-form/{entity_type}/{entity_id}'
+  defaults:
+    _controller: '\Drupal\aplus_misc\Controller\AplusMiscRequestOfferFormController::build'
+  requirements:
+    _permission: 'view botg product'
+
+# Maps info window.
+aplus_misc.map_info_window:
+  path: '/aplus-misc/map-info-window/{ident}'
+  defaults:
+    _controller: 'Drupal\aplus_misc\Controller\AplusMiscGmapInfoWindowController::build'
+    #_format: json
+  requirements:
+    _permission: 'view botg product'
+
+# Import travel categories to taxonomy vocabulary 'trip_travel_categories'.
+entity.taxonomy_term.import_travel_categories_form:
+  path: '/admin/structure/taxonomy/manage/{taxonomy_vocabulary}/import_travel_categories'
+  defaults:
+    _title: 'Import BOTG travel categories'
+    _form: '\Drupal\aplus_misc\Form\AplusMiscTaxonomyTravelCategoriesImportForm'
+  requirements:
+    _custom_access: '\Drupal\aplus_misc\Access\AplusMiscTaxonomyImportTravelCategoriesAccessCheck::access'
+    _entity_create_access: 'taxonomy_term:{taxonomy_vocabulary}'

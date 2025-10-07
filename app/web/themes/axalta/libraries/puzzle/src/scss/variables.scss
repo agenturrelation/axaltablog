@@ -1,0 +1,71 @@
+/* Colors
+-------------------------------------------------- */
+
+$black: #1a1a1a;
+$lightgrey: #f5f5f5;
+$mediumgrey: #aaaaaa;
+$grey: #888;
+$darkgrey: #555;
+$lightorange: #f39100;
+$mediumorange: #e94d19;
+$darkorange: #d83c08;
+
+$axalta-red: #c82127;
+$axalta-grey: #222;
+
+$repanet-blue: #0055a4;
+$repanet-red: #da291c;
+$repanet-red-dark: #c71609;
+$repanet-grey: #f0f0f0;
+
+$proficlub-red: #da291c;
+
+$fivestar-red: #e63c28;
+$fivestar-red-dark: #c61c08;
+$fivestar-grey: #bcbcc0;
+
+$border-color: rgba(255,255,255,0.3);
+
+/* Breakpoints
+-------------------------------------------------- */
+$max-width: 1400px;
+$borderbox: calc(100% - 40px);
+$breakpoint-x: 36rem;
+$breakpoint-s: 48rem;
+$breakpoint-m: 64rem;
+$breakpoint-l: 80rem;
+$breakpoint-xl: 90rem;
+$breakpoint-xxl: 100rem;
+
+/* Sizes
+-------------------------------------------------- */
+$margin-xxs: 0.5rem;
+$margin-xs: 0.7rem;
+$margin-s: 1rem;
+$margin-m: 1.3rem;
+$margin-l: 1.5rem;
+$margin-xl: 2.5rem;
+$margin-xxl: 4rem;
+$margin-xxxl: 5rem;
+
+$padding-xxs: 0.5rem;
+$padding-xs: 0.7rem;
+$padding-s: 1rem;
+$padding-m: 1.4rem;
+$padding-l: 1.6rem;
+$padding-xl: 2.5rem;
+$padding-xxl: 4rem;
+$padding-xxxl: 5rem;
+
+$admin-toolbar-height: 50px;
+$gap: 0.6rem;
+$countdown-gap: 4px;
+
+
+/* Fonts
+-------------------------------------------------- */
+$default-font-family: 'Poppins', Verdana, Geneva, sans-serif;
+$default-headline-family: 'Roboto Condensed', Verdana, Geneva, sans-serif;
+
+$font: 1em/1.65em $default-font-family;
+$font2: 1em/1.5em $default-font-family;

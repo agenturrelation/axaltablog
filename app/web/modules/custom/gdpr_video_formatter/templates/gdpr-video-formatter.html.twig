@@ -1,0 +1,43 @@
+{#
+{{ thumbnail_responsive_image }}
+{{ thumbnail_image }}
+#}
+
+{% set external_link_title = 'Watch this video on YouTube'|t %}
+
+{% if thumbnail_image is not empty %}
+  <div class="gdpr-video-wrapper" title="{{ video_title }}" data-video-id="{{ video_id }}">
+    <div class="gdpr-video-inner-wrapper" itemprop="video" itemscope="" itemtype="https://schema.org/VideoObject">
+      <div>
+        <meta itemprop="thumbnailUrl" content="{{ thumbnail_image_url }}">
+        <meta itemprop="embedURL" content="https://www.youtube.com/embed/{{ video_id }}">
+        <meta itemprop="title" content="{{ video_title }}">
+        {% if video_upload_date is not empty %}<meta itemprop="uploadDate" content="{{ video_upload_date }}" />{% endif %}
+        <p itemprop="description">{% if video_description|trim is not empty %}{{ video_description }}{% else %}{{ video_title }}{% endif %}</p>
+      </div>
+      <div class="gdpr-video-thumb-wrapper" style="background-image: url('{{ thumbnail_image_url }}')">
+
+        {# video title #}
+        <div class="gdpr-video-title">
+          <span itemprop="name">{{ video_title }}</span>
+        </div>
+
+        {# play button #}
+        <button class="gdpr-play-btn" aria-label="Wiedergabe">
+          <img src="../../../../themes/axalta/images/playbutton.svg"/>
+        </button>
+      </div>
+      <noscript>
+        <a{{ create_attribute({'href': 'https://www.youtube.com/watch?v=' ~ video_id, 'title': external_link_title, 'target': '_blank'}) }}>
+          {{ thumbnail_image }}
+          <br>
+          {{ external_link_title }}
+        </a>
+      </noscript>
+    </div>
+
+    <div class="gdpr-video-consent">
+        {{ consent_text }}
+    </div>
+  </div>
+{% endif %}

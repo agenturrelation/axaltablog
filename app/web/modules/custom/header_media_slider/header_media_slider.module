@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Header Media Slider module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function header_media_slider_theme($existing, $type, $theme, $path) {
+  return [
+    'header_media_slider' => [
+      'variables' => [
+        'slider_height' => NULL,
+        'slider_options' => [],
+        'slides' => []
+      ],
+    ],
+  ];
+}

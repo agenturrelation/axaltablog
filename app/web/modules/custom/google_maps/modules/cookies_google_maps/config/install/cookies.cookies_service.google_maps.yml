@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - cookies_google_maps
+id: google_maps
+label: 'Google Maps'
+group: media
+weight: 0
+info:
+  format: 'full_html'
+  value: ''
+consentRequired: true
+placeholderMainText: 'This content is blocked because Google Maps cookies have not been accepted.'
+placeholderAcceptText: 'Accept Google Maps cookies.'
+purpose: ''
+processor: ''
+processorContact: ''
+processorUrl: 'https://maps.google.com/'
+processorPrivacyPolicyUrl: 'https://policies.google.com/privacy'
+processorCookiePolicyUrl: 'https://policies.google.com/technologies/cookies'

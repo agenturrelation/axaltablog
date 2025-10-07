@@ -1,0 +1,43 @@
+{#
+/**
+ * @file
+ * Theme implementation for a 'webform' element.
+ *
+ * This is an copy of the webform.html.twig theme_wrapper which includes the
+ * 'title_prefix' and 'title_suffix' variables needed for
+ * contextual links to appear.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The child elements of the webform.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_webform()
+ * @see _webform_form_after_build()
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="flex-center flex-middle">
+    <div class="col-10-m08-l06">
+        <form{{ attributes }}>
+            <div class="login-form__top">
+                <h2 class="blur-in-elem delay-180">Anmeldung</h2>
+                <div id="error_messages"></div>
+                <div class="blur-in-elem delay-360">{{ element.messages }}
+                {{ element.name }} {# username element #}
+                {{ element.pass }} {# password element #}
+
+                {{ element.form_build_id }} {# required #}
+                {{ element.form_id }} {# required #}
+                </div>
+                <div class="login-form__submit blur-in-elem delay-900">
+                    {{ element.actions.submit }}
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+name: Roebkes Misc
+type: module
+description: Miscellaneous additions for Roebkes
+package: roebkes
+core_version_requirement: ^10

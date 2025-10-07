@@ -1,0 +1,7 @@
+gdpr_video_formatter.settings_form:
+  path: '/admin/config/system/gdpr-video-formatter'
+  defaults:
+    _title: 'GDPR Video Formatter settings'
+    _form: 'Drupal\gdpr_video_formatter\Form\SettingsForm'
+  requirements:
+    _permission: 'administer site configuration'

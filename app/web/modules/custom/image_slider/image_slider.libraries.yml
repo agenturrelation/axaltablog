@@ -1,0 +1,40 @@
+
+# Image Slider formatter.
+image_slider_formatter:
+  js:
+    js/image-slider-formatter.js: {}
+  dependencies:
+    - core/once
+    - image_slider/splide
+    - image_slider/lightbox
+
+# lightbox
+lightbox:
+  js:
+    js/image-slider-lightbox.js: { }
+  dependencies:
+    - core/drupal
+    - core/once
+    - image_slider/lightgallery
+
+
+# Slide.js - Third-party library (self hosted).
+splide:
+  js:
+    /libraries/splidejs--splide/dist/js/splide.min.js: { minified: true }
+    /libraries/splidejs--splide-extension-video/dist/js/splide-extension-video.min.js: { minified: true }
+
+  css:
+    component:
+      /libraries/splidejs--splide/dist/css/splide.min.css: { minified: true }
+      /libraries/splidejs--splide-extension-video/dist/css/splide-extension-video.min.css: { minified: true }
+
+# lightGallery
+lightgallery:
+  js:
+    /libraries/lightgallery/lightgallery.min.js: { minified: true }
+    /libraries/lightgallery/plugins/zoom/lg-zoom.min.js: { minified: true }
+  css:
+    component:
+      /libraries/lightgallery/css/lightgallery.css: { }
+      /libraries/lightgallery/css/lg-zoom.css: { }

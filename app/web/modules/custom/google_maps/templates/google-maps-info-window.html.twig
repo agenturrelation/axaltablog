@@ -1,0 +1,27 @@
+<div data-ident="{{ ident }}">
+  {# location name #}
+  <h6>
+    {{ location_name }}
+  </h6>
+
+  {# address #}
+  {% if show_address and formatted_address is not empty %}
+    <address>
+      {{ formatted_address }}
+    </address>
+  {% endif %}
+
+  {# contact #}
+  {% if show_contact %}
+    <p>
+     {{ 'Phone'|t }}: {{ phone }}<br>
+    {{ email }}<br>
+     {{ website }}
+    </p>
+  {% endif %}
+
+  {# markup #}
+  {% if markup is not empty %}
+    {{ markup }}
+  {% endif %}
+</div>

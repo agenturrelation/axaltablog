@@ -1,0 +1,13 @@
+<article{{attributes.addClass('searchresult flex-between')}}>
+	<div class="col-12-m04 thumbnail">
+		{{ content.field_thumbnail }}
+	</div>
+	<div class="col-12-m08 flex-center">
+		<div class="col-09">
+			<span class="category">{{ 'Projekt'|t }}</span>
+			{% if label %}<h4>{{ node.label }}</h4>{% endif %}
+			{{ content.field_teaser_description }}
+			<a href="{{ url }}">{{ 'Zur Seite'|t }}</a>
+		</div>
+	</div>
+</article>

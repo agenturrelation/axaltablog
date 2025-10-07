@@ -1,0 +1,24 @@
+
+<div class="cmhsf-wrapper">
+  <div id="cmhsf-inner">
+    {{ form|without('query')|without('actions')}}
+
+    {# input #}
+    {{ form.query }}
+
+    {# submit (invisible) #}
+    {{ form.actions }}
+
+    {# categories #}
+    <ul class="cmhsf-categories">
+    {% for category in form['#search_categories'] %}
+      <button type="button">{{ category }}</button>
+    {% endfor %}
+    </ul>
+  </div>
+
+  {# search trigger button #}
+  <button type="button" id="cmhsf-trigger">
+    <span class="material-symbols-outlined"></span>
+  </button>
+</div>

@@ -1,0 +1,7 @@
+google_maps.settings_form:
+  path: '/admin/config/system/google-maps'
+  defaults:
+    _title: 'Google Maps settings'
+    _form: 'Drupal\google_maps\Form\SettingsForm'
+  requirements:
+    _permission: 'administer google_maps configuration'

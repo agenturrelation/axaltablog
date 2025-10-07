@@ -1,0 +1,11 @@
+
+.icon-picker-option {
+  display: flex;
+  align-items: center;
+}
+
+.icon-picker-option span.icon {
+  font-size: 1.75rem;
+  width: 35px;
+}
+

@@ -1,0 +1,8 @@
+name: 'Google Maps'
+type: module
+description: 'Provides Google Maps integration'
+package: Custom
+core_version_requirement: ^10
+configure: google_maps.settings_form
+dependencies:
+  - google_places_autocomplete:google_places_autocomplete
