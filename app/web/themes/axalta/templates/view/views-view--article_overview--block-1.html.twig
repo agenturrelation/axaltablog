@@ -37,8 +37,7 @@
     dom_id ? 'js-view-dom-id-' ~ dom_id,
   ]
 %}
-<div class="container newsblog">
-<div{{ attributes.addClass(classes) }}>
+<div{{ attributes.addClass('article-overview-grid flex-top') }}>
   {{ title_prefix }}
   {{ title }}
   {{ title_suffix }}
@@ -69,5 +68,4 @@
   {% endif %}
 
   {{ feed_icons }}
-</div>
 </div>

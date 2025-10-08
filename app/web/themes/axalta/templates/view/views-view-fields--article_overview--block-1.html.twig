@@ -31,11 +31,15 @@
  * @ingroup themeable
  */
 #}
-<a href="{{ path('entity.node.canonical', {'node': row._entity.id()}) }}">
-<div class="content-wrapper">
-		<h4>{{ fields.field_title.content }} <small>(m/w/d)</small></h4>
-		<span>
-			Standort {{ fields.field_location.content }}
-		</span>
+<div class="col-12 flex-center article-overview">
+  <a href="{{ fields.view_node.content }}">
+    <div class="article-thumbnail flex-center">
+      {{ fields.field_cover.content }}
+    </div>
+    <div class="col-11 article-content">
+      {{ fields.field_category.content }}
+      <h3>{{ fields.title.content }}</h3>
+      <time>{{ fields.created.content }}</time>
+    </div>
+  </a>
 </div>
-</a>

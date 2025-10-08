@@ -31,7 +31,7 @@
                 {% if slide.headline is not empty %}
                   <span>{{ slide.category }}</span>
 									<h1>{{ slide.headline | raw }}</h1>
-                  <date>{{ node.created.value|date('d.m.Y') }}</date>
+                  <time>{{ node.created.value|date('d.m.Y') }}</time>
 								{% endif %}
                 
                 {% if slide.content is not empty %}

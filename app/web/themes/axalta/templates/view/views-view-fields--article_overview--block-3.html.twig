@@ -31,12 +31,12 @@
  * @ingroup themeable
  */
 #}
-<div class="flex-between flex-top projectlist blur-in-elem delay-{{ loop.index0 * 180 }}">
-  <div class="col-12-s06-m08">
-    {{ fields.field_theme.content }}{{ fields.field_project_description.content }}
-  </div>
-  <div class="col-12-s06-m04 flex-middle flex-right author">
-    {{ fields.uid.content }}&nbsp;|&nbsp;{{ fields.created.content }}&nbsp;&nbsp;
-    <a class="ti-pencil-alt" href="{{ fields.edit_node.content }}" title="Bearbeiten"></a>
+<div class="col-12 flex-left article-footer">
+  <div class="col-11 flex-between">
+    <div class="col-05 article-thumbnail">{{ fields.field_cover.content }}</div>
+    <div class="col-07 article-content">
+      <h3>{{ fields.title.content }}</h3>
+      <time>{{ fields.created.content }}</time>
+    </div>
   </div>
 </div>

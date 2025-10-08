@@ -2,11 +2,10 @@
 
 	<div{{content_attributes}}>
 
-		<div class="field-image">
-			{{ content.field_image }}
-		</div>
-
 		<div class="field-content">
+			{{ content.field_cover }}
+			{{ content.field_category }}
+			<h1>{{ label }}</h1>
 			{{ content.field_content_article }}
 			{{ content.field_not_translateable }}
 		</div>

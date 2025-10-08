@@ -164,6 +164,9 @@ T A B L E T - P C  <  7 6 8 p x
 			height: auto;
 		}
 	}
+	.article-overview-grid {
+		grid-template-columns: 1fr 1fr;
+	}
 	#axalta-header-search-form {
 		&.open {
 			.cmhsf-wrapper {

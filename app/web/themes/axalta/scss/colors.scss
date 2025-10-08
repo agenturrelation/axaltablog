@@ -64,6 +64,9 @@ html[lang*="de"] {
                 color: v.$axalta-red;
             }
         }
+        time {
+            color: v.$axalta-red;
+        }
         #footer-bottom {
             color: #fff;
             background: v.$axalta-grey;
@@ -145,6 +148,9 @@ html[lang*="fs"] {
             &:hover {
                 color: v.$fivestar-red-dark;
             }
+        }
+        time {
+            color: v.$fivestar-red;
         }
         #footer-bottom {
             color: #fff;
@@ -232,6 +238,9 @@ html[lang*="pc"] {
                 color: v.$proficlub-red;
             }
         }
+        time {
+            color: v.$proficlub-red;
+        }
         #footer-bottom {
             color: #fff;
             background: v.$proficlub-red;
@@ -309,6 +318,9 @@ html[lang*="rn"] {
             &:hover {
                 color: v.$repanet-blue;
             }
+        }
+        time {
+            color: v.$repanet-blue;
         }
         #footer-bottom {
             color: #fff;
