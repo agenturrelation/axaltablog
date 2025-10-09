@@ -4,7 +4,6 @@
  * @file
  */
 
-use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Drupal\views\ViewExecutable;
 
 /**
