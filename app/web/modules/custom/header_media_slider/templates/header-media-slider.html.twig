@@ -29,11 +29,20 @@
             <div class="slider-markup-container">
               <div class="slider-markup">
                 {% if slide.headline is not empty %}
-                  <span>{{ slide.category }}</span>
-									<h1>{{ slide.headline | raw }}</h1>
+                  {% if slide.category.label is not empty and slide.category.id is not empty  %}
+                    <div>
+                      <a href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': slide.category.id}) }}">
+                        {% if slide.category.icon is not empty %}
+                          <span class="material-symbols-outlined">{{ slide.category.icon}}</span>
+                        {% endif %}
+                        {{ slide.category.label}}
+                      </a>
+                    </div>
+                  {% endif %}
+                  <h1>{{ slide.headline | raw }}</h1>
                   <time>{{ node.created.value|date('d.m.Y') }}</time>
 								{% endif %}
-                
+
                 {% if slide.content is not empty %}
                   <div class="slider-content">
                     {{ slide.content | raw }}

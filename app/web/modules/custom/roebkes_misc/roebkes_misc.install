@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * Implements hook_update_N().
+ *
+ * Remove old modules.
+ */
+function roebkes_misc_update_9001() {
+  $modules_to_disable = ['functions_misc'];
+
+  $config_name = 'core.extension';
+
+  // Load the existing configuration.
+  $config = \Drupal::configFactory()->getEditable($config_name);
+
+  // Get the current list of enabled modules.
+  $enabled_modules = $config->get('module') ?? [];
+
+  // Disable the specified modules.
+  foreach ($modules_to_disable as $module) {
+    if (isset($enabled_modules[$module])) {
+      unset($enabled_modules[$module]);
+    }
+  }
+
+  // Update the configuration with the new list of enabled modules.
+  $config->set('module', $enabled_modules);
+  $config->save();
+}

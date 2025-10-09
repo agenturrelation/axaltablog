@@ -23,3 +23,12 @@ function header_media_slider_install($is_syncing) {
     ])->save();
   }
 }
+
+/**
+ * Implements hook_update_N().
+ *
+ * Create missing responsive image style.
+ */
+function header_media_slider_update_9001() {
+  header_media_slider_install(false);
+}

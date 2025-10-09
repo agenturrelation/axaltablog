@@ -3,11 +3,14 @@
 namespace Drupal\header_media_slider;
 
 use Drupal\file\Entity\File;
+use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\taxonomy\Entity\Term;
 
 class HeaderMediaSlider {
 
+  // Paragraph fields.
   const FIELD_NAME_ROOT_PARAGRAPH = 'field_mediaslider';
 
   const FIELD_NAME_SLIDES = 'field_slide';
@@ -23,6 +26,14 @@ class HeaderMediaSlider {
   const FIELD_NAME_MEDIA_VIDEO = 'field_media_video_file';
 
   const FIELD_NAME_MEDIA_REMOTE_VIDEO = 'field_media_oembed_video';
+
+  const FIELD_NAME_CATEGORY_ICON = 'field_icon';
+
+
+  // Fields for Node Type Article.
+  const ARTICLE_FIELD_NAME_SLIDE_CATEGORY = 'field_category';
+  const ARTICLE_FIELD_NAME_MEDIA_IMAGE = 'field_cover';
+
 
   /**
    * @var \Drupal\Core\File\FileUrlGenerator
@@ -63,7 +74,7 @@ class HeaderMediaSlider {
         // Get translated paragraph entity.
         /** @var Node $translation */
         $slide_paragraph_entity = \Drupal::service('entity.repository')->getTranslationFromContext($slide_paragraph_entity);
-        
+
         // Set headline.
         if (!$slide_paragraph_entity->hasField(static::FIELD_NAME_SLIDE_HEADLINE)) {
           throw new \Exception("Missing slides headline field in slide paragraph, did you name it '" . static::FIELD_NAME_SLIDE_HEADLINE . "'?");
@@ -78,6 +89,21 @@ class HeaderMediaSlider {
         $slide_category = $slide_paragraph_entity->get(static::FIELD_NAME_SLIDE_CATEGORY)
           ->getString();
 
+        // Load taxonomy term.
+        $slide_category_label = '';
+        $slide_category_id = '';
+        $slide_category_icon = '';
+        if (!empty($slide_category)) {
+          $term_entity = Term::load($slide_category);
+          if ($term_entity instanceof Term) {
+            $slide_category_label = $term_entity->label();
+            $slide_category_id = $term_entity->id();
+            if ($term_entity->hasField(static::FIELD_NAME_CATEGORY_ICON)) {
+              $slide_category_icon = $term_entity->get(static::FIELD_NAME_CATEGORY_ICON)->getString();
+            }
+          }
+        }
+
         // Get media entity.
         if (!$slide_paragraph_entity->hasField(static::FIELD_NAME_SLIDE_MEDIA)) {
           throw new \Exception("Missing slides content field in slide paragraph, did you name it '" . static::FIELD_NAME_SLIDE_MEDIA . "'?");
@@ -85,7 +111,7 @@ class HeaderMediaSlider {
 
         /** @var $slide_media_entity \Drupal\media\Entity\Media */
         $slide_media_entity = $slide_paragraph_entity->get(static::FIELD_NAME_SLIDE_MEDIA)[0]->entity;
-        if (!$slide_media_entity instanceof \Drupal\media\Entity\Media) {
+        if (!$slide_media_entity instanceof Media) {
           throw new \Exception("Slide media entity is NULL");
         }
 
@@ -115,7 +141,11 @@ class HeaderMediaSlider {
             // Add Slide.
             $slides[] = [
               'headline' => !empty($slide_headline) ? nl2br($slide_headline) : NULL,
-              'category' => !empty($slide_category) ? $slide_category : NULL,
+              'category' => [
+                'label' => !empty($slide_category_label) ? $slide_category_label : NULL,
+                'id' => !empty($slide_category_id) ? $slide_category_id : NULL,
+                'icon' => !empty($slide_category_icon) ? $slide_category_icon : NULL,
+              ],
               'media' => [
                 'type' => $slide_media_type,
                 'uri' => $slide_media_uri,
@@ -135,7 +165,11 @@ class HeaderMediaSlider {
 
             $slides[] = [
               'headline' => !empty($slide_headline) ? nl2br($slide_headline) : NULL,
-              'category' => !empty($slide_category) ? $slide_category : NULL,
+              'category' => [
+                'label' => !empty($slide_category_label) ? $slide_category_label : NULL,
+                'id' => !empty($slide_category_id) ? $slide_category_id : NULL,
+                'icon' => !empty($slide_category_icon) ? $slide_category_icon : NULL,
+              ],
               'media' => [
                 'type' => 'video_html',
                 'url' => $slide_file->createFileUrl(),
@@ -159,7 +193,11 @@ class HeaderMediaSlider {
             // Add Slide.
             $slides[] = [
               'headline' => !empty($slide_headline) ? nl2br($slide_headline) : NULL,
-              'category' => !empty($slide_category) ? $slide_category : NULL,
+              'category' => [
+                'label' => !empty($slide_category_label) ? $slide_category_label : NULL,
+                'id' => !empty($slide_category_id) ? $slide_category_id : NULL,
+                'icon' => !empty($slide_category_icon) ? $slide_category_icon : NULL,
+              ],
               'media' => [
                 'type' => 'video_' . $remote_video_source,
                 'url' => trim($remote_video_url),
@@ -175,6 +213,106 @@ class HeaderMediaSlider {
         }
       }
 
+    } catch (\Exception $e) {
+      if (\Drupal::moduleHandler()->moduleExists('devel')) {
+        dsm('Catch exception:' . $e->getMessage());
+      }
+      $slides = [];
+    }
+
+    return $slides;
+  }
+
+  /**
+   * Get Slides for Node Article.
+   *
+   * @param Node $entity
+   * @return array
+   */
+  public function getArticleSlides(Node $entity): array
+  {
+
+    $slides = [];
+
+    try {
+
+      // Set headline.
+      $slide_headline = $entity->label();
+
+      // Set category.
+      if (!$entity->hasField(static::ARTICLE_FIELD_NAME_SLIDE_CATEGORY)) {
+        throw new \Exception("Missing category field in Node, did you name it '" . static::ARTICLE_FIELD_NAME_SLIDE_CATEGORY . "'?");
+      }
+      $slide_category = $entity->get(static::ARTICLE_FIELD_NAME_SLIDE_CATEGORY)
+        ->getString();
+
+      // Load taxonomy term.
+      $slide_category_label = '';
+      $slide_category_id = '';
+      $slide_category_icon = '';
+      if (!empty($slide_category)) {
+        $term_entity = Term::load($slide_category);
+        if ($term_entity instanceof Term) {
+          $slide_category_label = $term_entity->label();
+          $slide_category_id = $term_entity->id();
+          if ($term_entity->hasField(static::FIELD_NAME_CATEGORY_ICON)) {
+            $slide_category_icon = $term_entity->get(static::FIELD_NAME_CATEGORY_ICON)->getString();
+          }
+        }
+      }
+
+      // Get media entity.
+      if (!$entity->hasField(static::ARTICLE_FIELD_NAME_MEDIA_IMAGE)) {
+        throw new \Exception("Missing cover Media field in Node, did you name it '" . static::ARTICLE_FIELD_NAME_MEDIA_IMAGE . "'?");
+      }
+
+      /** @var $slide_media_entity \Drupal\media\Entity\Media */
+      $slide_media_entity = $entity->get(static::ARTICLE_FIELD_NAME_MEDIA_IMAGE)[0]->entity;
+      if (!$slide_media_entity instanceof Media) {
+        throw new \Exception("Slide media entity is NULL");
+      }
+      // dsm($slide_media_entity);
+
+      // Set media type.
+      $slide_media_type = $slide_media_entity->bundle();
+
+
+      // dsm($slide_media_type, 'slide_media_type');
+      // dsm($slide_headline, 'slide_headline');
+
+      // Handle different media types.
+      switch ($slide_media_type) {
+
+        // Image.
+        case 'image':
+
+          // Load image file.
+          $slide_file_id = $slide_media_entity->get(static::FIELD_NAME_MEDIA_IMAGE)[0]->getValue()['target_id'];
+          $slide_file = File::load($slide_file_id);
+          $slide_media_uri = $slide_file->getFileUri();
+          // dsm($slide_media_uri, 'slide_media_uri');
+
+          // Add Slide.
+          $slides[] = [
+            'headline' => !empty($slide_headline) ? nl2br($slide_headline) : NULL,
+            'category' => [
+              'label' => !empty($slide_category_label) ? $slide_category_label : NULL,
+              'id' => !empty($slide_category_id) ? $slide_category_id : NULL,
+              'icon' => !empty($slide_category_icon) ? $slide_category_icon : NULL,
+            ],
+            'media' => [
+              'type' => $slide_media_type,
+              'uri' => $slide_media_uri,
+              'url' => $this->fileUrlGenerator->generateAbsoluteString($slide_media_uri),
+              // 'style_url' => $image_style->buildUrl($uri),
+              'responsive_image' => $this->getResponsiveImage($slide_file),
+            ],
+          ];
+          break;
+
+        default:
+          // All other formats are not supported.
+      }
     } catch (\Exception $e) {
       if (\Drupal::moduleHandler()->moduleExists('devel')) {
         dsm('Catch exception:' . $e->getMessage());

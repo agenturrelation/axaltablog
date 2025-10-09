@@ -22,7 +22,6 @@ class HeaderMediaSliderBlock extends BlockBase {
    */
   public function build(): array {
 
-
     // Set supported entities.
     $entity = NULL;
 
@@ -38,7 +37,7 @@ class HeaderMediaSliderBlock extends BlockBase {
     $slider_height = '';
 
     // Check if node has root paragraph field.
-    if (($entity instanceof Node)
+    if ($entity instanceof Node
       && $entity->hasField($headerMediaSlider::FIELD_NAME_ROOT_PARAGRAPH)
       && !empty($entity->get($headerMediaSlider::FIELD_NAME_ROOT_PARAGRAPH)->getValue())
       && $entity->get($headerMediaSlider::FIELD_NAME_ROOT_PARAGRAPH)->getValue()[0]
@@ -51,6 +50,17 @@ class HeaderMediaSliderBlock extends BlockBase {
 
       // Set slider height / options.
       $slider_height = $headerMediaSlider->getSliderHeight($root_paragraph['target_id']);
+    }
+
+    // Fallback for article node.
+    if (count($slides) < 1 &&
+      $entity instanceof Node
+      && $entity->bundle() == 'article'
+     ) {
+      // dsm($cover);
+      $slides = $headerMediaSlider->getArticleSlides($entity);
+      $slider_height = $headerMediaSlider->getSliderHeight('');
+      // dpm($slides, 'article slides');
     }
 
     // dpm($slides, 'slides');
