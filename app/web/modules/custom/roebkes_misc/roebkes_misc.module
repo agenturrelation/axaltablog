@@ -4,6 +4,9 @@
  * @file
  */
 
+use Drupal\views\Plugin\views\query\QueryPluginBase;
+use Drupal\views\ViewExecutable;
+
 /**
  * Implements hook_theme().
  */
@@ -13,4 +16,36 @@ function roebkes_misc_theme() {
       'render element' => 'form',
     ],
   ];
+}
+
+/**
+ * Implements hook_views_pre_render().
+ *
+ * Remove duplicate rows based on nid in a specific view/display.
+ */
+function roebkes_misc_views_pre_render(ViewExecutable $view) {
+  // Limit to a specific view and display, for safety.
+  if ($view->id() === 'tags') {
+    // Tags view:
+
+    // Remove duplicates based on Taxonomy Term ID.
+    $used_term_ids = [];
+    $filtered_result = [];
+    foreach ($view->result as $row) {
+      if (isset($row->taxonomy_term_field_data_node__field_tags_tid) && !in_array($row->taxonomy_term_field_data_node__field_tags_tid, $used_term_ids)) {
+        $row->index = count($used_term_ids);
+        $used_term_ids[] = $row->taxonomy_term_field_data_node__field_tags_tid;
+        $filtered_result[] = $row;
+      }
+    }
+
+    // Replace the result set with the deduplicated one.
+    $view->result = $filtered_result;
+
+    // Optional: Adjust total rows and pager if needed.
+    // This helps keep the pager count consistent with the reduced result.
+    if (isset($view->total_rows)) {
+     //  $view->total_rows = count($filtered_result);
+    }
+  }
 }
