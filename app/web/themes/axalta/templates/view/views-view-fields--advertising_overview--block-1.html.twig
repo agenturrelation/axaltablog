@@ -31,16 +31,22 @@
  * @ingroup themeable
  */
 #}
-<div class="col-12 flex-center article-overview">
-    <a href="{{ fields.view_node.content|striptags|trim }}">
-      <div class="article-thumbnail flex-center">
-        {{ fields.field_cover.content }}
+{# Advertising Overview #}
+<a href="{{ fields.view_node.content|striptags|trim }}">
+  <div class="col-12 advertising-wrapper">
+    <div class="flex-between">
+      <div class="article-thumbnail">{{ fields.field_product_image.content }}</div>
+      <div class="col-12 flex-center article-content">
+        <div class="col-11">
+          {% if fields.field_articlenumber.content|striptags|trim %}
+            <small class="articlenumber"><strong>Artikelnummer:</strong> {{ fields.field_articlenumber.content }}</small>
+          {% endif %}
+          <h3>{{ fields.title.content }}</h3>
+          {% if fields.field_size.content|striptags|trim is not empty %}
+            <small class="size"><strong>Format:</strong> {{ fields.field_size.content }}</small>
+          {% endif %}
+        </div>
       </div>
-    </a>
-    <div class="col-11 article-content">
-      {{ fields.field_category.content }}
-      <a href="{{ fields.view_node.content|striptags|trim }}"><h3>{{ fields.title.content }}</h3>
-      <time>{{ fields.created.content }}</time></a>
     </div>
-  
-</div>
+  </div>
+</a>

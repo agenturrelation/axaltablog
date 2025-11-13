@@ -50,8 +50,8 @@
   <div{{ attributes.addClass('paragraph-wrapper container textblock-content-wrapper') }}>
     {% block content %}
       <div class="padding-top blur-in-elem delay-200">
-        <h5>{{ content.field_subheadline|field_value }}</h5>
-        <h2>{{ content.field_intro|field_value }}</h2>
+        {% if content.field_subheadline|render %}<h5>{{ content.field_subheadline|field_value }}</h5>{% endif %}
+        {% if content.field_intro|render %}<h2>{{ content.field_intro|field_value }}</h2>{% endif %}
         {{ content.field_description|field_value }}
       </div>
     {% endblock %}

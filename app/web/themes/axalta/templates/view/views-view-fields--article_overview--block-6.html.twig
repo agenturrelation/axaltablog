@@ -31,16 +31,10 @@
  * @ingroup themeable
  */
 #}
-<div class="col-12 flex-center article-overview">
-    <a href="{{ fields.view_node.content|striptags|trim }}">
-      <div class="article-thumbnail flex-center">
-        {{ fields.field_cover.content }}
-      </div>
-    </a>
-    <div class="col-11 article-content">
-      {{ fields.field_category.content }}
-      <a href="{{ fields.view_node.content|striptags|trim }}"><h3>{{ fields.title.content }}</h3>
-      <time>{{ fields.created.content }}</time></a>
-    </div>
-  
+{# Newsarchiv Liste #}
+<div class="col-12 article-archivelist">
+  <a href="{{ fields.view_node.content|striptags|trim }}">
+    <time>{{ fields.created.content }}</time>
+    <h4>{{ fields.title.content }}</h4>
+  </a>
 </div>

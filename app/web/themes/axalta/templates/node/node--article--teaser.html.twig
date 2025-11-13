@@ -1,10 +1,10 @@
 <article{{attributes.addClass('col-12 searchresult flex-between')}}>
-	<div class="col-12-m04 thumbnail">
-		{{ content.field_cover }} <!-- @Patrick: Keine Ausgabe des Titelbildes -->
+	<div class="col-12-m05 thumbnail">
+		{{ content.field_cover }}
 	</div>
-	<div class="col-12-m08 flex-center">
-		<div class="col-09">
-			{{ content.field_category }} <!-- @Patrick: Keine Ausgabe der Kategorie -->
+	<div class="col-12-m07 flex-center">
+		<div class="col-10">
+			{{ content.field_category }}
 			{% if label %}<h4>{{ node.label }} <small><br/>{{ node.created.value|date('d.m.Y') }}</small></h4>{% endif %}
 			
 			{{ content.field_teaser_description }}

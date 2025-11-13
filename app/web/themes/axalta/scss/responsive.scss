@@ -18,6 +18,12 @@ S M A L L - D E V I C E  <  5 7 6 p x
 			width: calc(50% - .25em) !important;
 		}
 	}
+
+	.advertising-view-wrapper {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: v.$margin-m;
+	}
 }
 
 /* ==================================================================
@@ -94,7 +100,7 @@ T A B L E T - P C  <  7 6 8 p x
 	}
 
 	.paragraph--type--gallery {
-		padding: v.$padding-xl 0;
+		padding: v.$padding-l 0;
 
 		.lightbox-gallery {
 
@@ -336,9 +342,19 @@ S M A L L  D I S P L A Y S  <  1 0 2 4 p x
 		}
 	}
 
+	.advertising-view-wrapper {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: v.$margin-m;
+	}
+
+	.event-wrapper {
+		min-width: v.$breakpoint-m;
+	}
+
 	aside {
-		margin-top: 0 !important;
-		padding: 0 2.5em;
+
+		margin: 0 0 0 v.$margin-m !important;
 	}
 
 	.md-slide-item {
@@ -407,7 +423,7 @@ S M A L L  D I S P L A Y S  <  1 0 2 4 p x
 	}
 
 	.paragraph--type--gallery {
-		padding: v.$padding-xl 0 v.$padding-xxl;
+		padding: v.$padding-l 0 v.$padding-xl;
 	}
 
 	.paragraph--type--counter {
@@ -473,7 +489,7 @@ B I G  D I S P L A Y S  <  1 6 0 0 p x
 	}
 
 	.paragraph--type--gallery {
-		padding-bottom: v.$padding-xxxl;
+		padding-bottom: v.$padding-xl;
 
 	}
 }

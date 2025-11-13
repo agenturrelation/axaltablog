@@ -1,0 +1,26 @@
+<article{{attributes.addClass('advertising-node')}}>
+	<div{{content_attributes.addClass('col-12 flex-between')}}>
+		<div class="col-12-m06">
+			{{ content.field_product_image }}
+		</div>
+		<div class="col-12-m05">
+			{% set articlenumber = content.field_articlenumber|render|striptags|trim %}
+      		{% if articlenumber %}
+				<small><strong>Artikelnummer:</strong> {{ content.field_articlenumber|render|striptags|trim }}</small>
+			{% endif %}
+			{% if label %}<h1>{{ node.label }}</h1>{% endif %}
+			{{ content.body }}
+			{% set size = content.field_size|render|striptags|trim %}
+     		{% if size %}
+				<small><strong>Format:</strong> {{ content.field_size|render|striptags|trim }}</small>
+			{% endif %}
+			{% set download = content.field_download|render|striptags|trim %}
+      		{% if download %}
+				<div class="download">
+					<h4>Download</h4>
+					{{ content.field_download }}
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</article>

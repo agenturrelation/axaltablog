@@ -3,11 +3,12 @@
 	<div{{content_attributes}}>
 
 		<div class="field-content">
-			{{ content.field_cover }}
-			{{ content.field_category }}
-			<h1>{{ label }}</h1>
+			<time>{{ node.created.value|date('d.m.Y') }}</time>
 			{{ content.field_content_article }}
-			{{ content.field_not_translateable }}
+			<div class="tag-list">
+				<hr/>
+				<span>tags:</span> {{ content.field_tags }}
+			</div>
 		</div>
 
 	</div>
