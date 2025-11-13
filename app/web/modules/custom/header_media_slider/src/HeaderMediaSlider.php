@@ -295,6 +295,7 @@ class HeaderMediaSlider {
           // Add Slide.
           $slides[] = [
             'headline' => !empty($slide_headline) ? nl2br($slide_headline) : NULL,
+            'created' => $entity->getCreatedTime(),
             'category' => [
               'label' => !empty($slide_category_label) ? $slide_category_label : NULL,
               'id' => !empty($slide_category_id) ? $slide_category_id : NULL,

@@ -40,7 +40,7 @@
                     </div>
                   {% endif %}
                   <h1>{{ slide.headline | raw }}</h1>
-                  <time>{{ node.created.value|date('d.m.Y') }}</time>
+                  <time>{{ slide.created|date('d.m.Y') }}</time>
 								{% endif %}
 
                 {% if slide.content is not empty %}
