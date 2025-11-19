@@ -22,6 +22,7 @@
         "commerceguys/addressing": "^2.2",
         "composer/installers": "^2.0",
         "drupal/admin_toolbar": "^3.3",
+        "drupal/admin_user_language": "^1.2",
         "drupal/ajax_loader": "^2.1",
         "drupal/animated_gif": "^2.1",
         "drupal/antibot": "^2.0",
