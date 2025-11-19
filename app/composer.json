@@ -34,6 +34,7 @@
         "drupal/core-project-message": "^10.0",
         "drupal/core-recommended": "^10.0",
         "drupal/devel": "^5.1",
+        "drupal/domain": "^2.0@beta",
         "drupal/facets": "^2.0",
         "drupal/field_group": "^3.6",
         "drupal/google_tag": "^2.0",
