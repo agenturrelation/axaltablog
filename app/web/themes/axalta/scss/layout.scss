@@ -777,8 +777,8 @@ aside {
     font-size: 1.2em;
   }
 }
-.article-overview-grid {
-  [data-contextual-id=""] {
+.contextual-region.article-overview-grid {
+  > div {
     position: absolute;
     z-index: 500;
     top: 6px;
