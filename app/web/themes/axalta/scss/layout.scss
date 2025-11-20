@@ -777,6 +777,15 @@ aside {
     font-size: 1.2em;
   }
 }
+.article-overview-grid {
+  [data-contextual-id=""] {
+    position: absolute;
+    z-index: 500;
+    top: 6px;
+    right: 0;
+  }
+}
+
 
 /* Highlighted
 -------------------------------------------------- */
